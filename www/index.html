@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>homework 1</title>
+
+    <link rel="manifest" href="manifest.json">
+
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+
+
+  </head>
+
+
+  <body ng-controller="mainCtrl">
+
+  <ion-nav-bar class="bar-positive">
+
+
+  </ion-nav-bar>
+  <ion-nav-view></ion-nav-view>
+
+  <!--first page-->
+    <script id="templates/view1.html" type="text/ng-template">
+      <ion-view view-title="Mini SudoKu">
+        <ion-pane>
+          <ion-header-bar>
+          </ion-header-bar>
+          <ion-content class="padding has-header">
+
+
+
+              <img src="img/sudoku.png" style="margin-left: 35%">
+
+
+
+            <div class="text-center" style="margin-top: 200px">
+            <button class="button icon-right ion-star button-calm"
+                    ng-click="start()">start</button>
+
+            </div>
+          </ion-content>
+        </ion-pane>
+      </ion-view>
+    </script>
+
+    <!--second page question 1-->
+  <script id="templates/view2.html" type="text/ng-template">
+    <ion-view view-title="Q1View">
+      <ion-pane>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Question 1</h1>
+        </ion-header-bar>
+        <ion-content class="padding has-header">
+
+        </ion-content>
+      </ion-pane>
+    </ion-view>
+  </script>
+
+
+  <!--third page question 2-->
+  <script id="templates/view3.html" type="text/ng-template">
+    <ion-view view-title="Q1View">
+      <ion-pane>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Question 1</h1>
+        </ion-header-bar>
+        <ion-content class="padding has-header">
+
+        </ion-content>
+      </ion-pane>
+    </ion-view>
+  </script>
+
+
+  <!--final page result-->
+  <script id="templates/view4.html" type="text/ng-template">
+    <ion-view view-title="Q1View">
+      <ion-pane>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Question 1</h1>
+        </ion-header-bar>
+        <ion-content class="padding has-header">
+
+        </ion-content>
+      </ion-pane>
+    </ion-view>
+  </script>
+
+
+
+
+  </body>
+</html>
