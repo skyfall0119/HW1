@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="hwApp">
+<html ng-app="puzzle">
   <head>
 
     <meta charset="utf-8">
@@ -22,24 +22,29 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
 
+
   </head>
 
 
 
   <body>
 
-  <ion-nav-bar class="bar-positive"></ion-nav-bar>
+  <ion-nav-bar class="bar-positive" style=""></ion-nav-bar>
   <ion-nav-view></ion-nav-view>
 
   <!--first page-->
     <script id="templates/view1.html" type="text/ng-template">
-      <ion-view view-title="Mini SudoKu">
+      <ion-view view-title="Puzzle">
         <ion-pane>
           <ion-content class="padding has-header">
 
-            <img src="img/sudoku2.png" style="width:70%; margin-left:15%">
+            <p style="text-align: center;
+                    color: #46c1ff;
+                    font-size: 50px;
+                    margin-top: 30px;">Solve the </p><br>
+            <p style="text-align: center; color: #46c1ff; font-size: 50px">Puzzle</p>
             <br>
-            <img src="img/sudoku3.png" style="width:70%; margin-left:15%">
+            <img src="img/puzzle.png" style="width:70%; margin-left:15%">
 
             <div class="text-center" style="margin-top: 20px">
             <button class="button icon-right ion-star button-calm"
