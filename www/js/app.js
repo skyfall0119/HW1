@@ -3,57 +3,66 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var starter = angular.module('starter', ['ionic'])
+var hwApp = angular.module('hwApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state( 'start', {
-      url:'/start',
-      templateUrl:'templates/view1.html'
+      url:"/start",
+      templateUrl:"templates/view1.html",
+      controller: 'startCtrl'
     })
 
-    .state( 'Q1', {
-      url:'/Q1',
-      templateUrl:'templates/view2.html'
+    .state( 'q1', {
+      url:"/q1",
+      templateUrl:"templates/view2.html",
+      controller: 'q1Ctrl'
+
     })
 
-    .state( 'Q2', {
-      url:'/Q2',
-      templateUrl:'templates/view3.html'
+    .state( 'q2', {
+      url:"/q2",
+      templateUrl:"templates/view3.html",
+      controller: 'q2Ctrl'
+
     })
 
     .state( 'result', {
-      url:'/result',
-      templateUrl:'templates/view4.html'
+      url:"/result",
+      params: {
+        'q1_answer_param' : null,
+        'q2_answer_param' : null
+      },
+      templateUrl:"templates/view4.html",
+      controller: 'resultCtrl'
     });
 
   $urlRouterProvider.otherwise("/start");
-
 })
 
 
-
-starter.controller('mainCtrl', function($scope, $ionicModal, $ionicLoading, $state, $stateParams) {
-
-
-
+// in the start page, nothing really happens. just clicking on start to proceed
+hwApp.controller('startCtrl', function($scope, $state, $stateParams) {
 
 
   // start button pressed
-  $scope.start = function () { // Create onSubmit function
-
-
+  $scope.start = function () {
+    $state.go("q1")
   };
+})
+
+hwApp.controller('q1Ctrl', function($scope, $state, $stateParams) {
 
 
 
+})
+
+hwApp.controller('q2Ctrl', function($scope, $state, $stateParams) {
 
 
 
-
-
-
-
+})
+hwApp.controller('resultCtrl', function($scope, $state, $stateParams) {
 
 
 
