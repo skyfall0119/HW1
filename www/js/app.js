@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var puzzle = angular.module('puzzle', ['ionic'])
+var myApp = angular.module('myApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -42,7 +42,7 @@ var puzzle = angular.module('puzzle', ['ionic'])
 
 
 // in the start page, nothing really happens. just clicking on start to proceed
-puzzle.controller('startCtrl', function($scope, $state, $stateParams) {
+myApp.controller('startCtrl', function($scope, $state, $stateParams) {
 
 
   // start button pressed
@@ -51,18 +51,23 @@ puzzle.controller('startCtrl', function($scope, $state, $stateParams) {
   };
 })
 
-hwApp.controller('q1Ctrl', function($scope, $state, $stateParams) {
+myApp.controller('q1Ctrl', function($scope, $state, $stateParams) {
+
+
+  $scope.check = function() {
+
+
+
+
+  }
+})
+
+myApp.controller('q2Ctrl', function($scope, $state, $stateParams) {
 
 
 
 })
-
-hwApp.controller('q2Ctrl', function($scope, $state, $stateParams) {
-
-
-
-})
-hwApp.controller('resultCtrl', function($scope, $state, $stateParams) {
+myApp.controller('resultCtrl', function($scope, $state, $stateParams) {
 
 
 

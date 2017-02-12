@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="puzzle">
+<html ng-app="myApp">
   <head>
 
     <meta charset="utf-8">
@@ -34,15 +34,15 @@
 
   <!--first page-->
     <script id="templates/view1.html" type="text/ng-template">
-      <ion-view view-title="Puzzle">
+      <ion-view view-title="Quiz">
         <ion-pane>
           <ion-content class="padding has-header">
 
-            <p style="text-align: center;
-                    color: #46c1ff;
-                    font-size: 50px;
+            <p style="text-align: center; color: #46c1ff;
+                    font-size: 50px; font-style: italic; font-weight: bold;
                     margin-top: 30px;">Solve the </p><br>
-            <p style="text-align: center; color: #46c1ff; font-size: 50px">Puzzle</p>
+            <p style="text-align: center; font-style: italic; color: #46c1ff;
+                        font-size: 50px; font-weight: bold;">Puzzle</p>
             <br>
             <img src="img/puzzle.png" style="width:70%; margin-left:15%">
 
@@ -60,6 +60,48 @@
     <ion-view view-title="Problem 1">
       <ion-pane>
         <ion-content class="padding has-header">
+          <p style="text-align: center; color: #46c1ff;
+                    font-size: 20px; font-style: italic; font-weight: bold;
+                    margin-top: 10px; line-height: 110%">
+            What time is it?  Put device time</p><br>
+
+          <div class="bottom" style="margin-top: 30px">
+            <div style="float: left; width: 40%;">
+              <label class="item item-input">
+
+                <input type="text" name="hour" id="hour-textarea"
+                       ng-model="$parent.hour" placeholder="hour">
+              </label>
+            </div>
+            <div style="float: left; width: 40%;">
+              <label class="item item-input">
+
+                <input type="text" name="minute" id="minute-textarea"
+                       ng-model="$parent.minute" placeholder="minute">
+              </label>
+            </div>
+
+            <!--select button for am, pm-->
+            <div style="float: left; width: 20%;">
+              <label class="item item-input item-select">
+                <select>
+                  <option selected> A M </option>
+                  <option> P M </option>
+                </select>
+
+
+              </label>
+            </div>
+
+          </div>
+
+          <div class="text-center" style="margin-top: 100px">
+            <button class="button button-calm"
+                    ng-click="check()">check!</button>
+          </div>
+
+
+
 
         </ion-content>
       </ion-pane>
