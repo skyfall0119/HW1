@@ -1,1 +1,24 @@
 /* Empty. Add your own CSS if you like */
+
+
+#to_view1_pic_id {
+  margin-left: 20vw; /* left margin = 25 % of viewport width */
+  margin-right: 20vw; /* right margin = 25 % of viewport width */
+  width: 60vw; /* width = 50 % of viewport width */
+  height: 50vw; /* height = 10 % of viewport width */
+}
+
+#to_view2_pic_id {
+  margin-left: 30vw; /* left margin = 25 % of viewport width */
+  margin-right: 30vw; /* right margin = 25 % of viewport width */
+  width: 40vw; /* width = 50 % of viewport width */
+  height: 30vw; /* height = 10 % of viewport width */
+}
+
+
+#to_view3_pic_id {
+  margin-left: 30vw; /* left margin = 25 % of viewport width */
+  margin-right: 30vw; /* right margin = 25 % of viewport width */
+  width: 40vw; /* width = 50 % of viewport width */
+  height: 30vw; /* height = 10 % of viewport width */
+}

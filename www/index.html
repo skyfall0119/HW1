@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
   <head>
 
     <meta charset="utf-8">
@@ -27,7 +27,7 @@
 
 
 
-  <body>
+  <body  ng-app="myApp">
 
   <ion-nav-bar class="bar-positive" style=""></ion-nav-bar>
   <ion-nav-view></ion-nav-view>
@@ -42,9 +42,9 @@
                     font-size: 50px; font-style: italic; font-weight: bold;
                     margin-top: 30px;">Solve the </p><br>
             <p style="text-align: center; font-style: italic; color: #46c1ff;
-                        font-size: 50px; font-weight: bold;">Puzzle</p>
+                        font-size: 50px; font-weight: bold;">Problem!</p>
             <br>
-            <img src="img/puzzle.png" style="width:70%; margin-left:15%">
+            <img src="img/puzzle.png" id="to_view1_pic_id">
 
             <div class="text-center" style="margin-top: 20px">
             <button class="button icon-right ion-star button-calm"
@@ -65,15 +65,20 @@
                     margin-top: 10px; line-height: 110%">
             What time is it?  Put device time</p><br>
 
+          <p style="text-align: center; color: #46c1ff;
+                    font-size: 20px; font-style: italic; font-weight: bold;
+                    margin-top: 10px; line-height: 110%">
+            (0 ~ 24 hour base. no AM, PM) </p><br>
+
           <div class="bottom" style="margin-top: 30px">
-            <div style="float: left; width: 40%;">
+            <div style="float: left; width: 50%;">
               <label class="item item-input">
 
                 <input type="text" name="hour" id="hour-textarea"
                        ng-model="$parent.hour" placeholder="hour">
               </label>
             </div>
-            <div style="float: left; width: 40%;">
+            <div style="float: left; width: 50%;">
               <label class="item item-input">
 
                 <input type="text" name="minute" id="minute-textarea"
@@ -81,27 +86,24 @@
               </label>
             </div>
 
-            <!--select button for am, pm-->
+
+            <!--select button for am, pm
+                failed... never mind..
             <div style="float: left; width: 20%;">
               <label class="item item-input item-select">
-                <select>
+                <select ng>
                   <option selected> A M </option>
                   <option> P M </option>
                 </select>
-
-
               </label>
             </div>
-
+            -->
           </div>
 
           <div class="text-center" style="margin-top: 100px">
             <button class="button button-calm"
-                    ng-click="check()">check!</button>
+                    ng-click="check()">check and proceed</button>
           </div>
-
-
-
 
         </ion-content>
       </ion-pane>
@@ -111,13 +113,26 @@
 
   <!--third page question 2-->
   <script id="templates/view3.html" type="text/ng-template">
-    <ion-view view-title="Q1View">
+    <ion-view view-title="Problem 2">
       <ion-pane>
-        <ion-header-bar class="bar bar-header bar-positive">
-          <h1 class="title">Question 1</h1>
-        </ion-header-bar>
         <ion-content class="padding has-header">
+          <p style="text-align: center; color: #46c1ff;
+                    font-size: 20px; font-style: italic; font-weight: bold;
+                    margin-top: 10px; line-height: 110%">
+            Test your luck. 50/50 Complete Random!</p><br>
 
+          <p style="text-align: center; color: #46c1ff;
+                    font-size: 20px; font-style: italic; font-weight: bold;
+                    margin-top: 10px; line-height: 110%">
+            click on one of the picture </p><br>
+
+
+            <img src="img/ocean.jpg" id="to_view2_pic_id"
+                  ng-click="ocean()">
+            <br>
+
+            <img src="img/mountain.jpg" id="to_view3_pic_id"
+                 ng-click="mountain()">
         </ion-content>
       </ion-pane>
     </ion-view>
@@ -126,12 +141,26 @@
 
   <!--final page result-->
   <script id="templates/view4.html" type="text/ng-template">
-    <ion-view view-title="Q1View">
+    <ion-view view-title="Final Result!">
       <ion-pane>
-        <ion-header-bar class="bar bar-header bar-positive">
-          <h1 class="title">Question 1</h1>
-        </ion-header-bar>
         <ion-content class="padding has-header">
+          <p style="text-align: center; color: #46c1ff;
+                    font-size: 30px; font-style: italic; font-weight: bold;
+                    margin-top: 50px; line-height: 110%">
+            Your Final Score is</p><hr>
+
+          <p style="text-align: left; color: #46c1ff;
+                    font-size: 20px; font-style: italic; font-weight: bold;
+                    margin-top: 50px; line-height: 50%">
+            Problem 1</p>
+
+
+
+          <p id="q1Result">aewlalewfj</p>
+          <p id="q2Result">aewlalewfj</p>
+
+
+
 
         </ion-content>
       </ion-pane>
