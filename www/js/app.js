@@ -118,8 +118,15 @@ myApp.controller('q2Ctrl', function($scope, $state) {
 
 myApp.controller('resultCtrl', function($scope, $state, $stateParams) {
 
+  var comb = null;
 
-  if ($stateParams.q1_result_param) document.getElementById("q1Result").innerHTML = "correct";
+  comb = $stateParams.q1_result_param + $stateParams.q2_result_param;
+
+
+    document.getElementById("combinedResult").innerHTML = comb * 50 + "%";
+
+
+    if ($stateParams.q1_result_param) document.getElementById("q1Result").innerHTML = "correct";
   else document.getElementById("q1Result").innerHTML = "wrong";
 
 
