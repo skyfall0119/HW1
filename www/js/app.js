@@ -22,6 +22,10 @@ var myApp = angular.module('myApp', ['ionic'])
 
     .state( 'q2', {
       url:"/q2",
+      params: {
+        'q1_result_param' : null,
+        'q2_random_val' : null
+      },
       templateUrl:"templates/view3.html",
       controller: 'q2Ctrl'
 
@@ -38,7 +42,7 @@ var myApp = angular.module('myApp', ['ionic'])
     });
 
   $urlRouterProvider.otherwise("/start");
-})
+});
 
 
 // in the start page, nothing really happens. just clicking on start to proceed
@@ -47,13 +51,12 @@ myApp.controller('startCtrl', function($scope, $state) {
   $scope.start = function () {
     $state.go("q1")
   };
-})
+});
 
-myApp.controller('q1Ctrl', function($scope, $state, $ionicLoading) {
-  $scope.hour=null;
-  $scope.minute=null;
+
+// problem 1. check if user put the time matching to the device
+myApp.controller('q1Ctrl', function($scope, $state, $ionicModal, $ionicLoading) {
   var result = null;
-
 
 
   $scope.check = function() {
@@ -62,80 +65,96 @@ myApp.controller('q1Ctrl', function($scope, $state, $ionicLoading) {
     var h = time.getHours();
     var m = time.getMinutes();
 
+
+    //ionicLoading for debugging purpose
+
     if ($scope.hour == null || $scope.minute == null ) {
       $ionicLoading.show({ template: 'put your answer.', noBackdrop: true, duration: 1000 });
     } else if ($scope.hour != h || $scope.minute != m ) {
+      $ionicLoading.show({ template: 'wrong.', noBackdrop: true, duration: 1000 });
       result = false;
     } else {
+      $ionicLoading.show({ template: 'correct.', noBackdrop: true, duration: 1000 });
       result = true;
     }
 
     if (result != null) {
+      delete $scope.hour;
+      delete $scope.minute;
+
+      var randomPass;
+      var random = Math.floor((Math.random() * 10) + 1);
+      if (random >= 1 && random <= 5) {
+        randomPass = "ocean";
+      } else {
+        randomPass = "mountain";
+      }
+
       $state.go("q2", {
+        'q2_random_val' : randomPass,
         'q1_result_param' : result
       })
     }
   };
 
-})
+});
 
-myApp.controller('q2Ctrl', function($scope, $state) {
+myApp.controller('q2Ctrl', function($scope, $state, $ionicModal, $ionicLoading, $stateParams) {
+  var ans = $stateParams.q2_random_val;
+  var result2;
 
-  var random = Math.floor((Math.random() * 10) + 1);
-  var ans = "";
-  var result = false;
-
-
-  if (random >= 1 && random <= 5) {
-    ans = "ocean";
-  } else {
-    ans = "mountain";
-  }
-
-
-
+  //ionicLoading for debugging purpose.
   $scope.ocean = function() {
       if (ans == "ocean") {
-        result = true;
+        $ionicLoading.show({ template: 'correct.', noBackdrop: true, duration: 1000 });
+        result2 = true;
+      } else {
+        $ionicLoading.show({template: 'wrong.', noBackdrop: true, duration: 1000});
+        result2 = false;
       }
     $state.go("result", {
-      'q2_result_param' : result
+      'q1_result_param' : $stateParams.q1_result_param,
+      'q2_result_param' : result2
+
     })
-  }
+  };
 
   $scope.mountain = function () {
     if (ans == "mountain") {
-      result = true;
+      $ionicLoading.show({template: 'correct.', noBackdrop: true, duration: 1000});
+      result2 = true;
+    } else{ $ionicLoading.show({template: 'wrong.', noBackdrop: true, duration: 1000});
+      var result2 = false;
     }
+
     $state.go("result", {
-      'q2_result_param' : result
+      'q1_result_param' : $stateParams.q1_result_param,
+      'q2_result_param' : result2
+
     })
   }
 
 
-})
+});
 
 
 myApp.controller('resultCtrl', function($scope, $state, $stateParams) {
 
-  var comb = null;
-
-  comb = $stateParams.q1_result_param + $stateParams.q2_result_param;
-
-
-    document.getElementById("combinedResult").innerHTML = comb * 50 + "%";
-
-
-    if ($stateParams.q1_result_param) document.getElementById("q1Result").innerHTML = "correct";
-  else document.getElementById("q1Result").innerHTML = "wrong";
-
-
-  if ($stateParams.q2_result_param) document.getElementById("q2Result").innerHTML = "correct";
-  else document.getElementById("q2Result").innerHTML = "wrong";
 
 
 
+  var comb = $stateParams.q1_result_param + $stateParams.q2_result_param;
+  $scope.combResult = comb * 50 + "%";
+
+    if ($stateParams.q1_result_param) $scope.result1= "correct";
+  else $scope.result1 = "wrong";
+
+  if ($stateParams.q2_result_param) $scope.result2 = "correct";
+  else $scope.result2 = "wrong";
 
 
+  $scope.redo = function () {
 
-})
+    $state.go("start");
+  }
+});

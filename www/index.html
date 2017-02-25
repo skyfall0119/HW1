@@ -71,33 +71,20 @@
             (0 ~ 24 hour base. no AM, PM) </p><br>
 
           <div class="bottom" style="margin-top: 30px">
-            <div style="float: left; width: 50%;">
+            <div style="float: left; margin-left: 10%; width: 40%;">
               <label class="item item-input">
 
                 <input type="text" name="hour" id="hour-textarea"
                        ng-model="$parent.hour" placeholder="hour">
               </label>
             </div>
-            <div style="float: left; width: 50%;">
+            <div style="float: left; width: 40%; margin-right: 10%" >
               <label class="item item-input">
 
                 <input type="text" name="minute" id="minute-textarea"
                        ng-model="$parent.minute" placeholder="minute">
               </label>
             </div>
-
-
-            <!--select button for am, pm
-                failed... never mind..
-            <div style="float: left; width: 20%;">
-              <label class="item item-input item-select">
-                <select ng>
-                  <option selected> A M </option>
-                  <option> P M </option>
-                </select>
-              </label>
-            </div>
-            -->
           </div>
 
           <div class="text-center" style="margin-top: 100px">
@@ -141,7 +128,7 @@
 
   <!--final page result-->
   <script id="templates/view4.html" type="text/ng-template">
-    <ion-view view-title="Final Result!">
+    <ion-view view-title="Final Result!" title="left">
       <ion-pane>
         <ion-content class="padding has-header">
           <p style="text-align: center; color: #46c1ff;
@@ -149,36 +136,39 @@
                     margin-top: 50px; line-height: 110%">
             Your Final Score is</p><hr>
 
+
+          <!--result 1-->
           <p style="text-align: left; color: #46c1ff;
                     font-size: 20px; font-style: italic; font-weight: bold;
                     margin-top: 50px; line-height: 50%">
             Problem 1</p>
-
-
-
-          <p id="q1Result" style="text-align: left; color: #792e8f; margin-left: 20px;
+          <p style="text-align: left; color: #792e8f; margin-left: 20px;
              font-size: 20px; font-style: italic; font-weight: bold;
-             margin-top: 10px; line-height: 50%">
-            aewlalewfj</p>
+             margin-top: 10px; line-height: 50%">{{result1}}</p>
 
+          <!--result 2-->
           <p style="text-align: left; color: #46c1ff;
                     font-size: 20px; font-style: italic; font-weight: bold;
                     margin-top: 20px; line-height: 50%">
             Problem 2</p>
-
-
-          <p id="q2Result" style="text-align: left; color: #792e8f; margin-left: 20px;
+          <p style="text-align: left; color: #792e8f; margin-left: 20px;
              font-size: 20px; font-style: italic; font-weight: bold;
-             margin-top: 10px; line-height: 50%">aewlalewfj</p>
-
+             margin-top: 10px; line-height: 50%">{{result2}}</p>
           <br><hr>
 
-          <p id="combinedResult" style="text-align: center; color: #72c293;
+          <!--margin: 0 auto-->
+          <p style="text-align: center; color: #72c293;
              font-size: 60px; font-style: italic; font-weight: bold;
-             margin-top: 50px; line-height: 50%">aewlalewfj</p>
+             margin-top: 50px; line-height: 50%">{{combResult}}</p>
 
+          <br>
 
+          <div class="text-center" style="margin-top: 100px">
+            <button class="button button-calm"
+                    ng-click="redo()">start over</button>
+          </div>
 
+  {{text}}
 
         </ion-content>
       </ion-pane>
